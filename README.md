@@ -19,8 +19,7 @@ Import the Sparklines components that you need; for example to generate a simple
 ![](http://borisyankov.github.io/react-sparklines/img/basic.png)
 
 ```
-import React from 'react';
-import { Sparklines } from 'react-sparklines';
+import { Sparklines } from 'react-sparklines-typescript-v2';
 ...
 <Sparklines data={[5, 10, 5, 20, 8, 15]} limit={5} width={100} height={20} margin={5}>
 </Sparklines>
@@ -47,8 +46,7 @@ min, max - optional, bound the chart
 ![](http://borisyankov.github.io/react-sparklines/img/customizable.png)
 
 ```
-import React from 'react';
-import { Sparklines, SparklinesLine } from 'react-sparklines';
+import { Sparklines, SparklinesLine } from 'react-sparklines-typescript-v2';
 ...
 <Sparklines data={[5, 10, 5, 20]}>
   <SparklinesLine color="blue" />
@@ -60,8 +58,7 @@ import { Sparklines, SparklinesLine } from 'react-sparklines';
 ![](http://borisyankov.github.io/react-sparklines/img/bars.png)
 
 ```
-import React from 'react';
-import { Sparklines, SparklinesBars } from 'react-sparklines';
+import { Sparklines, SparklinesBars } from 'react-sparklines-typescript-v2';
 ...
 <Sparklines data={[5, 10, 5, 20]}>
   <SparklinesBars />
@@ -73,8 +70,7 @@ import { Sparklines, SparklinesBars } from 'react-sparklines';
 ![](http://borisyankov.github.io/react-sparklines/img/spots.png)
 
 ```
-import React from 'react';
-import { Sparklines, SparklinesLine, SparklinesSpots } from 'react-sparklines';
+import { Sparklines, SparklinesLine, SparklinesSpots } from 'react-sparklines-typescript-v2';
 ...
 <Sparklines data={sampleData}>
     <SparklinesLine style={{ fill: "none" }} />
@@ -87,12 +83,11 @@ import { Sparklines, SparklinesLine, SparklinesSpots } from 'react-sparklines';
 ![](http://borisyankov.github.io/react-sparklines/img/referenceline.png)
 
 ```
-import React from 'react';
-import { Sparklines, SparklinesLine, SparklinesReferenceLine } from 'react-sparklines';
+import { Sparklines, SparklinesLine, SparklinesReferenceLine, SparklinesReferenceLineTypes } from 'react-sparklines-typescript-v2';
 ...
 <Sparklines data={sampleData}>
     <SparklinesLine />
-    <SparklinesReferenceLine type="mean" />
+    <SparklinesReferenceLine type={SparklinesReferenceLineTypes.mean} />
 </Sparklines>
 ```
 
@@ -101,8 +96,7 @@ import { Sparklines, SparklinesLine, SparklinesReferenceLine } from 'react-spark
 ![](http://borisyankov.github.io/react-sparklines/img/normalband.png)
 
 ```
-import React from 'react';
-import { Sparklines, SparklinesLine, SparklinesNormalBand } from 'react-sparklines';
+import { Sparklines, SparklinesLine, SparklinesNormalBand } from 'react-sparklines-typescript-v2';
 ...
 <Sparklines data={sampleData}>
     <SparklinesLine style={{ fill: "none" }}/>

@@ -1,6 +1,7 @@
-import React, { FC, CSSProperties } from "react";
-import * as dataProcessing from "./dataProcessing";
-import { Point } from "./types";
+import * as dataProcessing from "./dataProcessing"
+
+import { CSSProperties } from "react"
+import { Point } from "./types"
 
 export enum SparklinesReferenceLineTypes {
   max = "max",
@@ -12,29 +13,29 @@ export enum SparklinesReferenceLineTypes {
 }
 
 export interface SparklinesReferenceLineProps {
-  margin?: number;
-  points?: Point[];
-  type?: SparklinesReferenceLineTypes;
-  value?: number;
-  style?: CSSProperties;
+  margin?: number
+  points?: Point[]
+  type?: SparklinesReferenceLineTypes
+  value?: number
+  style?: CSSProperties
 }
 
-const SparklinesReferenceLine: FC<SparklinesReferenceLineProps> = (
+const SparklinesReferenceLine = (
   props: SparklinesReferenceLineProps
-) => {
+): JSX.Element => {
   const {
     points = [],
     margin = 0,
     type = SparklinesReferenceLineTypes.mean,
     style = { stroke: "red", strokeOpacity: 0.75, strokeDasharray: "2, 2" },
     value,
-  } = props;
+  } = props
 
-  const ypoints = points.map((p) => p.y);
+  const ypoints = points.map((p) => p.y)
   const y =
     type == "custom"
       ? value
-      : ((dataProcessing as any)[type] as (p: number[]) => number)(ypoints);
+      : ((dataProcessing as any)[type] as (p: number[]) => number)(ypoints)
 
   return (
     <line
@@ -44,7 +45,7 @@ const SparklinesReferenceLine: FC<SparklinesReferenceLineProps> = (
       y2={(y ? y : 0) + margin}
       style={style}
     />
-  );
-};
+  )
+}
 
-export default SparklinesReferenceLine;
+export default SparklinesReferenceLine

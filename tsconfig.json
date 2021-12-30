@@ -1,23 +1,39 @@
 {
   "compilerOptions": {
-    "noImplicitAny": true,
-    "jsx": "react",
-    "allowJs": true,
     "target": "es5",
-    "module": "commonjs",
-    "lib": ["es2017", "es7", "es6", "dom"],
-    "declaration": true,
-    "outDir": "./build",
-    "strict": true,
+    "lib": [
+      "dom",
+      "esnext"
+    ],
+    "allowJs": false,
     "esModuleInterop": true,
-    "sourceMap": true
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "declaration": true,
+    "outDir": "./build"
   },
+  "include": [
+    "src"
+  ],
   "exclude": [
     "node_modules",
     "build",
-    "webpack.config.js",
-    "src/dataProcessing",
-    "src/tests/**",
-    "coverage"
+    "__snapshots__",
+    "src/**/*.test.tsx",
+    "src/**/*.test.ts"
   ]
 }

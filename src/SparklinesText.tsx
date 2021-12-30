@@ -1,4 +1,3 @@
-import React, { FC, ReactNode } from "react";
 import { Point } from "./types";
 
 export interface SparklinesTextProps {
@@ -8,16 +7,16 @@ export interface SparklinesTextProps {
   fontFamily?: string;
 }
 
-const SparklinesText: FC<SparklinesTextProps> = (
-  props: SparklinesTextProps
-) => {
+const SparklinesText = (props: SparklinesTextProps): JSX.Element => {
   const {
     point = { x: undefined, y: undefined },
     text,
     fontSize,
     fontFamily,
   } = props;
+
   const { x, y } = point;
+
   return (
     <g>
       <text

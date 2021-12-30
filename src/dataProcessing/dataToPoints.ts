@@ -1,5 +1,5 @@
-import arrayMin from "./min";
 import arrayMax from "./max";
+import arrayMin from "./min";
 
 export interface DataToPointsArgs {
   data: number[];
@@ -26,11 +26,11 @@ export default ({
     data = data.slice(len - limit);
   }
 
-  const vfactor = (height - margin * 2) / (max - min || 2);
-  const hfactor = (width - margin * 2) / ((limit || len) - (len > 1 ? 1 : 0));
+  const vFactor = (height - margin * 2) / (max - min || 2);
+  const hFactor = (width - margin * 2) / ((limit || len) - (len > 1 ? 1 : 0));
 
   return data.map((d, i) => ({
-    x: i * hfactor + margin,
-    y: (max === min ? 1 : max - d) * vfactor + margin,
+    x: i * hFactor + margin,
+    y: (max === min ? 1 : max - d) * vFactor + margin,
   }));
 };
