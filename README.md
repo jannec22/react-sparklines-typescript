@@ -8,7 +8,7 @@ Live demos and docs: [borisyankov.github.io/react-sparklines/](http://borisyanko
 ## Install
 
 ```
-npm install react-sparklines --save
+npm install react-sparklines-typescript-v2 --save
 ```
 
 
