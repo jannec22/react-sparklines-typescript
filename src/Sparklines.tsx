@@ -20,7 +20,7 @@ import dataToPoints from "./dataProcessing/dataToPoints"
 
 export interface SparklinesProps {
   children?: ReactNode
-  data: number[]
+  data: number[] | number[][]
   height?: number
   limit?: number
   margin?: number
@@ -40,6 +40,10 @@ interface SVGOpts {
   style?: CSSProperties
   viewBox: string
   width?: number | string
+}
+
+const isSeries = (data: number[] | number[][]): data is number[][] => {
+  return data.length > 0 ? Array.isArray(data[0]) : false
 }
 
 const Sparklines = (props: SparklinesProps): JSX.Element => {
@@ -62,7 +66,13 @@ const Sparklines = (props: SparklinesProps): JSX.Element => {
   }
 
   const points = useMemo(
-    () => dataToPoints({ data, limit, width, height, margin, max, min }),
+    () => {
+      if (isSeries(data)) {
+        return data.map(series => dataToPoints({ data: series, limit, width, height, margin, max, min }))
+      } else {
+        return dataToPoints({ data, limit, width, height, margin, max, min })
+      }
+    },
     [data, limit, width, height, margin, max, min]
   )
 
@@ -77,14 +87,20 @@ const Sparklines = (props: SparklinesProps): JSX.Element => {
 
   return (
     <svg {...svgOpts}>
-      {Children.map(props.children, function (child: ReactNode) {
+      {Children.map(props.children, function (child: ReactNode, index: number) {
         if (!isValidElement(child)) {
+          return child
+        }
+
+        const childPoints = isSeries(data) ? points[index] : points
+
+        if (!childPoints) {
           return child
         }
 
         return cloneElement(child, {
           data,
-          points,
+          points: childPoints,
           width,
           height,
           margin,
