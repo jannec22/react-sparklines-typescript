@@ -52,6 +52,10 @@ const SparklinesCurve = (props: SparklinesCurveProps): JSX.Element => {
     return res
   }
 
+  if (!points.length) {
+    return <></>
+  }
+
   const linePoints = points
     .map(curve)
     .reduce((a, b) => a.concat(b), [])
