@@ -53,8 +53,8 @@ const SparklinesCurve = (props: SparklinesCurveProps): JSX.Element => {
   }
 
   const linePoints = points
-    .map((p: Point) => curve(p))
-    .reduce((a: (number | string)[], b: (number | string)[]) => a.concat(b))
+    .map(curve)
+    .reduce((a, b) => a.concat(b), [])
 
   const closePolyPoints: (number | string)[] = [
     "L" + points[points.length - 1].x,
